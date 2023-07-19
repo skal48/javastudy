@@ -1,6 +1,5 @@
 package ex01_one_dim;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class mainWrapper {

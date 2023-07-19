@@ -8,7 +8,7 @@ public class MainWapper {
   
   public static void ex01() {
   
-    //1차원 배열의 포기화 
+    //1차원 배열의 초기화 
     int[] a = {10, 20, 30};
     
     //advanced-for
