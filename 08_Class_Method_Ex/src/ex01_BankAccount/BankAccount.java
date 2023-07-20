@@ -54,28 +54,23 @@ public class BankAccount {
     }
     return retVal;
   }
-  public void transfer(String param1, long param2 ) {
+  public void transfer(BankAccount acc, long param ) {
     //한줄이다. 
-            withdrawal(param2);    deposit(param2);
-       
-       
+        acc.deposit(withdrawal(param));      
      }
   
+ 
   
-  
-  
-  
-  
-  public void setBalance(long param) {
-    balance = param;
+  public void setBalance(long balance) {
+    this.balance = balance;
   }
   
   public long getBalnce() {
     return balance;    
   }
   
-  public void setAccNo(String param) {
-    accNo = param;
+  public void setAccNo(String accNo) {
+    this.accNo = accNo;
   }
   
   public String getAccNo() {
