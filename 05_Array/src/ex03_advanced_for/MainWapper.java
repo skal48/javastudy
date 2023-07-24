@@ -1,4 +1,4 @@
-package ex03_advanced_fo;
+package ex03_advanced_for;
 
 import java.util.Arrays;
 
