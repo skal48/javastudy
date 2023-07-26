@@ -17,15 +17,7 @@ public class MainWrapper {
     System.out.println(p1 instanceof Student); // p1이  Student 타입이면 true 아니면 false
     System.out.println(p1 instanceof Worker);
     
-    if(p1 instanceof Student) {
-      ((Student) p1).study();
-    }
     
-    Person p2 = new Worker();
-    
-    if(p2 instanceof Worker) {
-      ((Worker) p2).work();
-    }
   }
     public static void ex03() {
       

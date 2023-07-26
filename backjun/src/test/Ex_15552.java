@@ -1,31 +1,26 @@
 package test;
 import java.io.*;
+import java.util.*;
 public class Ex_15552 {
 
   public static void main(String[] args) throws IOException{
     // TODO Auto-generated method stub
     
    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+   BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
    
-   String a;
+   int N = Integer.parseInt(br.readLine());
    
-   a = br.readLine();
-   
-   int[] c = new int[Integer.parseInt(a)];
-   
-   for(int i = 0; i < Integer.parseInt(a); i++ ) {
-     String b;
-     b = br.readLine();
-     int[] arr = new int[3];
-     arr[0] = Integer.parseInt(b);
-     
-     
-     c[i] = arr[0] + arr[2]; 
-     
+   StringTokenizer st;  //
+
+   for (int i = 0; i < N; i++) {
+     st = new StringTokenizer(br.readLine()," ");
+     bw.write((Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()))+ "\n");
    }
-    for (int i = 0; i < Integer.parseInt(a); i++) {
-      System.out.println(c[i]);
-    }
+   br.close();
+       
+   bw.flush();
+   bw.close();
 
   }
 

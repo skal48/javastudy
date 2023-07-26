@@ -1,6 +1,6 @@
 package ex06_GameUnit;
 
-public class GameUnit {
+public abstract class GameUnit {
 
   private String name;
   private int hp;
@@ -14,9 +14,9 @@ public class GameUnit {
   }
   
   //호출을 위한 attack 메소드는 실행되지 않는다. 
-  public void attack(GameUnit unit) {
+  public abstract void attack(GameUnit unit); 
        
-  }
+  
   
   
   public String getName() {
