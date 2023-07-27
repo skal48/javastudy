@@ -9,19 +9,18 @@ public class Ex_15552 {
    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
    
-   int N = Integer.parseInt(br.readLine());
+   int n = Integer.parseInt(br.readLine());
    
-   StringTokenizer st;  //
+   StringTokenizer ST;  //
 
-   for (int i = 0; i < N; i++) {
-     st = new StringTokenizer(br.readLine()," ");
-     bw.write((Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()))+ "\n");
-   }
-   br.close();
-       
-   bw.flush();
-   bw.close();
+   for (int i = 0; i < n; i++) {
+     ST = new StringTokenizer(br.readLine()," ");
+     bw.write((Integer.parseInt(ST.nextToken()) + Integer.parseInt(ST.nextToken())));
+     bw.newLine();
 
   }
+   bw.flush();
 
+  }
+  
 }

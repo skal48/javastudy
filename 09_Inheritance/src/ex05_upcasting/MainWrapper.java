@@ -30,5 +30,7 @@ public class MainWrapper {
     p2.study();
     p2.working();
     
+   
+    
   }
 }
