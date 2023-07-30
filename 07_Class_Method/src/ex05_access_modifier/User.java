@@ -29,7 +29,11 @@ package ex05_access_modifier;
  *    1) 외부로 부터 받아온 값(파라미터)을 필드에 저장하는 메소드 
  *    2) set + "필드명" 형식의 이름을 가지는 메소드이다. 
  *    3) 메소드 이름을 마음대로 바꾸면 안된다.
+<<<<<<< HEAD
  * 3. 참고. boolean 타입의 필드는 Getter/Setter의 이름 형식이 다르다.   
+=======
+ * 3. 참고. boolean 타입의 필드는 Getter/Setter의 이름 형식이 다르다.   Getter - is + 불린명/Setter - set + 불린명
+>>>>>>> 8755d70378eef71ba092bbe6ecb6608912290824
  */
 public class User {
 

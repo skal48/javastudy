@@ -184,7 +184,11 @@ public class mainWrapper {
   }
   public static void main(String[] args) {
     // TODO Auto-generated method stub
+
     ex08();
+
+    ex04();
+
     
   }
 

@@ -36,8 +36,13 @@ public class MainWrapper {
     char[] a = new char[26];
     char ch = 'A';
     char[] b = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
     a = b;
     /*for(int i = 0; i < a.length; i++) {
+=======
+    /*a = b;
+    for(int i = 0; i < a.length; i++) {
+>>>>>>> 8755d70378eef71ba092bbe6ecb6608912290824
       if(ch == a[i]) {
         System.out.print(a[i]);
         break;

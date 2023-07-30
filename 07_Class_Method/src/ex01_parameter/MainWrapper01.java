@@ -31,7 +31,10 @@ public class MainWrapper01 {
     System.out.println("ex04 : " + age);
   }
   
-  public static void ex03(double a, double b) { // 인수가 실수 2개이면 파라키터 double a, double b 두개 선언한다. 
+
+
+  public static void ex03(double a, double b) { // 인수가 실수 2개이면 파라미터 double a, double b 두개 선언한다. 
+
     System.out.println("ex03: " + a);
     System.out.println("ex03: " + b);
     
