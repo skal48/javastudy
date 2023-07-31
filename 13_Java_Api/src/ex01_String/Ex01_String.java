@@ -240,9 +240,9 @@ public class Ex01_String {
     
     //출력 폭 조정
 
-    System.out.println(String.format("%5d", number)); //10자리 10 진수로 표시, 숫자를 오른쪽 정렬처리 
-    System.out.println(String.format("%-5d", number)); //10자리 10진수로 표시 , 숫자를 왼쪽 정렬처리       
-    System.out.println(String.format("%05d", number)); //10자리 10 진수로 표시, 숫자를 오른쪽 정렬처리 빈자리를 0으로 채움
+    System.out.println(String.format("%5d", number)); //5자리 10 진수로 표시, 숫자를 오른쪽 정렬처리 
+    System.out.println(String.format("%-5d", number)); //5자리 10진수로 표시 , 숫자를 왼쪽 정렬처리       
+    System.out.println(String.format("%05d", number)); //5자리 10 진수로 표시, 숫자를 오른쪽 정렬처리 빈자리를 0으로 채움
     
     System.out.println(String.format("%10s", str)); // 10자리 문자열 표시, 문자열을 오른쪽 정렬
     System.out.println(String.format("%-10s", str)); // 10자리 문자열 표시, 문자열을 왼쪽 정렬

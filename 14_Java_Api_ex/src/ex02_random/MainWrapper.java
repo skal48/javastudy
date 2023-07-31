@@ -1,7 +1,10 @@
 package ex02_random;
 
-import java.sql.Blob;
+
+import java.security.SecureRandom;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class MainWrapper {
 
@@ -31,17 +34,16 @@ public class MainWrapper {
   // 출금 전 18원, 5회 출금액 17원, 출금 후 1원
   // 출금 전 1원, 6회 출금액 1원, 출금 후 0원
   public static void ex02() {
-    int balance = 5000;  // 통장
-    
+    // 통장
+    int balance = 5000;
     Random random = new Random();
-    for(int i = 0; i < i + 1; i++) {
-      int withdraw = random.nextInt(balance);
-      if(balance < withdraw) {
+    for(int i = 1; i < i+1; i ++) {
+      int wd = random.nextInt(balance) + 1 ;
+      System.out.print("출금 전 " + balance + "원, " + i + "회 출금액 " + wd + " 원, " + "출금 후 ");
+      balance -= wd;
+      System.out.println(balance + "원");
+      if(balance == 0) {
         return;
-      }else {
-        System.out.print( "출금 전 " + balance + ", " + i + "회 출금액 " + withdraw + "원, " );
-        balance -= withdraw;
-        System.out.println("출금 후 " + balance + "원" );
       }
     }
     
@@ -55,7 +57,11 @@ public class MainWrapper {
   // 실행예시)
   // 인증코드: [966419]
   public static void ex03() {
+    SecureRandom sr = new SecureRandom();
+    int code = sr.nextInt(900000) + 100000; 
     
+      System.out.println("인증코드: [" +  code + "]");
+     
   }
   
   // 문제4. 구구단을 외자.
@@ -68,6 +74,20 @@ public class MainWrapper {
   //   8x7? >>> 49
   //   땡
   public static void ex04() {
+    Random rd = new Random();
+    Scanner sc = new Scanner(System.in); 
+    
+    int one = rd.nextInt(9) + 1;
+    int two = rd.nextInt(9) + 1;
+    System.out.print(one + "*" + two + "? >>> ");
+    int three = sc.nextInt();
+   
+    if(three == one * two) {
+      System.out.println("정답");      
+    }else {
+      System.out.println("땡");
+    }
+    
     
   }
   
@@ -84,6 +104,23 @@ public class MainWrapper {
   //   "모", "윷", "도", 10칸 이동한다.
   public static void ex05() {
     String[] yut = {"", "도", "개", "걸", "윷", "모"};
+    Random rd = new Random();
+    int total = 0;
+    for(int i = 0; i < i + 1; i++) {
+      int a = rd.nextInt(5) + 1;
+      System.out.print(yut[a]+", ");
+      if(a == 4 || a == 5) {        
+        total += a;
+      }else if(a == 1 || a == 2 || a == 3) {
+        total += a;
+        System.out.println(total +"칸 이동한다.");
+        break;
+      }
+    }
+        
+
+    
+    
     
   }
   
@@ -95,6 +132,23 @@ public class MainWrapper {
   // 당신은 가위, 컴퓨터는 보, 당신은 이겼습니다.
   public static void ex06() {
     String[] rsp = {"가위", "바위", "보"};
+    Random rd = new Random();
+    int a = rd.nextInt(3);
+    
+    Scanner sc = new Scanner(System.in);
+    System.out.print("가위바위보 >>> ");
+    String me = sc.next();
+    
+    if(rsp[a].equals(me) ) {
+      System.out.println("당신은 " + me + ", 컴퓨터는 " + rsp[a] + ", 비겼습니다. ");
+    }else if((a == 0 && me.equals("바위")) || (a == 1 && me.equals("보")) || (a == 2 && me.equals("가위")) ) {
+      System.out.println("당신은 " + me + ", 컴퓨터는 " + rsp[a] + ", 당신은 이겼습니다. ");
+    }else if((a == 0 && me.equals("보")) || (a == 1 && me.equals("가위")) || (a == 2 && me.equals("바위"))) {
+      System.out.println("당신은 " + me + ", 컴퓨터는 " + rsp[a] + ", 당신은 졌습니다. ");
+    }else {
+      System.out.println("다시 실행해주세요.");
+    }
+    
     
   }
   
@@ -174,11 +228,11 @@ public class MainWrapper {
   
   public static void main(String[] args) {
     //ex01();
-   ex02();
+   //ex02();
    //ex03();
    //ex04();
    //ex05();
-   // ex06();
+    ex06();
    // ex07();
    // ex08();
    // ex09();
