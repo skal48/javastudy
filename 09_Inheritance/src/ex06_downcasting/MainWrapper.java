@@ -8,7 +8,7 @@ public class MainWrapper {
     p1.eat();
     p1.sleep();
     ((Student)p1).study(); //슈퍼 클래스 타입 -> 서브 클래스 타입으로 변경(다운캐스팅)
-    ((Worker)p1).work(); //잘못된 캐스팅을 막고 싶다.!
+    //((Worker)p1).work(); //잘못된 캐스팅을 막고 싶다.!
   }
   
   public static void ex02() {
@@ -37,7 +37,9 @@ public class MainWrapper {
   
   public static void main(String[] args) {
     
+  ex01();  
   ex02();  
+  ex03();  
     
     
   }

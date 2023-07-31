@@ -1,6 +1,5 @@
 package ex08_Bakery;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Customer {

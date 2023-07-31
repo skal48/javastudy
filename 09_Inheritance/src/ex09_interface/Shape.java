@@ -21,12 +21,12 @@ public interface Shape {
 
  // default 메소드
  public default void info1() {   //  --> 객체.info1
-   System.out.println("나는 도형이다. ");
+   System.out.println("나는 도형이다.1 ");
  }
  
  // static 메소드 
  public static void info2() { //클래스.info2
-   System.out.println("나는 도형이다.");
+   System.out.println("나는 도형이다.2");
  }
  
  
