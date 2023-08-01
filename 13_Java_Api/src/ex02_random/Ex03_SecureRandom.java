@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 
 public class Ex03_SecureRandom {
 
-  public static void main(String[] args) {
+  public static void main(String[] args)  {
     
     // java.security.SecureRandom 클래스    보안처리된 램덤
     // 1. 보안 처리된 난수를 발생한다. 

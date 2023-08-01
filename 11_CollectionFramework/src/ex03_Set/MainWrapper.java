@@ -29,6 +29,7 @@ public class MainWrapper {
     season.add("봄");
     season.add("여름");
     season.add("가을");
+    
     season.add("겨울");
     season.add("봄");
     
@@ -159,10 +160,10 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    //ex01();
+    ex01();
     //ex02();
     //ex03();
-    ex04();
+    //ex04();
 
   }
 

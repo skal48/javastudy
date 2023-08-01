@@ -1,10 +1,15 @@
-package ex02_random;
+package ex03_random;
+
 
 
 import java.security.SecureRandom;
-
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
+
 
 public class MainWrapper {
 
@@ -88,7 +93,7 @@ public class MainWrapper {
       System.out.println("땡");
     }
     
-    
+    sc.close();
   }
   
   // 문제5. 자동으로 진행되는 윷 던지기를 구현하시오. 윷이나 모가 나오면 추가로 던지시오.
@@ -149,6 +154,7 @@ public class MainWrapper {
       System.out.println("다시 실행해주세요.");
     }
     
+    sc.close();
     
   }
   
@@ -162,7 +168,29 @@ public class MainWrapper {
   //   몇 자리의 인증번호를 생성할까요? >>> 6
   //   생성된 6자리 인증번호는 Fa013b입니다.
   public static void ex07() {
+    Scanner sc = new Scanner(System.in);
     
+    System.out.print("몇 자리의 인증번호를 생성할까요? >>> ");
+    int a = sc.nextInt();
+    System.out.print("생성된 " + a + "자리 인증번호는 ");
+    
+    for(int i = 0; i < a; i++) {
+      SecureRandom rd = new SecureRandom();
+      int temp = rd.nextInt(72);
+      if((temp >= 10 && 16 >= temp) || (temp >= 43 && temp <= 48) ) {
+        i--;
+        continue;
+      }else {
+               
+      }
+      char ascii = '0';
+      ascii += temp;
+      System.out.print(ascii);
+     
+    }
+    System.out.println("입니다.");
+    
+    sc.close();
   }
   
   // 문제8. UpDown 게임
@@ -177,7 +205,21 @@ public class MainWrapper {
   // 입력 >>> 4500
   // 정답. 총 5번만에 성공.
   public static void ex08() {
-    
+    Scanner sc = new Scanner(System.in);
+    Random rd = new Random();
+    int number = rd.nextInt(10000) + 1;
+    for(int i = 0; i < i + 1; i++) {
+      System.out.print("입력 >>> ");
+      int player = sc.nextInt();
+      if(number > player) {
+        System.out.println("Up!");
+      }else if(player > number) {
+        System.out.println("Down!");      
+      }else if(player == number) {
+        System.out.println("정답. 총 " + (i+1) + "번만에 성공.");
+        return;
+      }
+    }
   }
   
   // 문제9. 0~9 사이 난수를 100개 생성하시오.
@@ -196,7 +238,16 @@ public class MainWrapper {
   public static void ex09() {
     int[] number = new int[100];  // 100개 난수
     int[] count = new int[10];    // 각 숫자가 발생한 횟수
+    SecureRandom sr = new SecureRandom();
+    int[][] collector = new int[10][];
     
+    for(int i = 0; i < 100; i++) {
+      int number = sr.nextInt(10);
+      if(collector[i][0] == number) {
+        
+      }
+    }
+  
   }
   
   // 문제10. 다음 순서에 따라서 5 x 5 형태의 숫자 빙고판을 자동으로 생성하시오.
@@ -232,10 +283,10 @@ public class MainWrapper {
    //ex03();
    //ex04();
    //ex05();
-    ex06();
+   // ex06();
    // ex07();
-   // ex08();
-   // ex09();
+   //ex08();
+    ex09();
    // ex10();
   }
 
