@@ -238,16 +238,26 @@ public class MainWrapper {
   public static void ex09() {
     int[] number = new int[100];  // 100개 난수
     int[] count = new int[10];    // 각 숫자가 발생한 횟수
-    SecureRandom sr = new SecureRandom();
-    int[][] collector = new int[10][];
     
-    for(int i = 0; i < 100; i++) {
-      int number = sr.nextInt(10);
-      if(collector[i][0] == number) {
-        
+    SecureRandom sr = new SecureRandom();
+    
+    
+      for(int i = 0; i < 100; i++) {
+        number[i] = sr.nextInt(10);
+        for(int j = 0; j < 10; j++) {
+          if(number[i] == j) {
+            count[j]++;        
+          }          
+        }
       }
-    }
-  
+      
+     for(int k = 0; k < 9; k++) {
+       System.out.print(k + " : ");
+       for(int a = 0 ; a < count[k] + 1; a++) {
+         System.out.print("#");
+       }
+       System.out.println(" " + count[k]);
+     }
   }
   
   // 문제10. 다음 순서에 따라서 5 x 5 형태의 숫자 빙고판을 자동으로 생성하시오.
@@ -274,19 +284,46 @@ public class MainWrapper {
   public static void ex10() {
     final int SIZE = 5;
     int[][] bingo = new int[SIZE][SIZE];
+    Random rd = new Random();   
+    
+    for(int i = 0; i < SIZE; i++) {
+      for(int j =0; j <SIZE; j++) {
+        bingo[i][j] = (i * 5) + (j + 1);
+      }
+    }
+    for(int i = 0; i < SIZE; i++) {
+      for(int j = 0; j < SIZE; j++) {
+        int a = rd.nextInt(5);
+        int b = rd.nextInt(5);
+        int[][] tmp = new int[SIZE][SIZE];
+        tmp[i][j] = bingo[i][j];
+        bingo[i][j] = bingo[a][b];
+        bingo[a][b] = tmp[i][j];      
+      }      
+    }
+    
+    for(int i = 0; i < SIZE; i++) {
+      for(int j = 0; j < SIZE; j++) {
+        System.out.print(String.format("%3s", bingo[i][j]));
+      }
+      System.out.println();
+    }
+      
+    
+    
     
   }
   
   public static void main(String[] args) {
-    //ex01();
-   //ex02();
-   //ex03();
-   //ex04();
-   //ex05();
-   // ex06();
+   // ex01();
+   // ex02();
+   // ex03();
+   // ex04();
+   // ex05();
+    ex06();
    // ex07();
-   //ex08();
-    ex09();
+   // ex08();
+   // ex09();
    // ex10();
   }
 
