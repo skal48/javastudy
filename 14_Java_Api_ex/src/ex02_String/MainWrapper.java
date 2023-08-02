@@ -1,6 +1,8 @@
 package ex02_String;
 
-
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Scanner;
 
 public class MainWrapper {
 
@@ -14,8 +16,10 @@ public class MainWrapper {
     String param = "";
     
     requestURI = url.substring(0,url.indexOf("?"));
+    param = url.substring(url.indexOf("?") + 1);
     
-    
+    System.out.println(requestURI);
+    System.out.println(param);
   }
 
   // 문제2. 다음 파일명을 분석하여 파일명과 확장자를 분리하시오.
@@ -27,6 +31,11 @@ public class MainWrapper {
     String fileName = "";
     String extName = "";
     
+    fileName = fullName.substring(0, fullName.indexOf("."));
+    extName = fullName.substring(fullName.indexOf(".") + 1);
+    
+    System.out.println(fileName);
+    System.out.println(extName);
   }
 
   // 문제3. 다음 기준에 따라서 파일명을 변환하시오.
@@ -39,6 +48,20 @@ public class MainWrapper {
     String beforeName = "";  // 변환 전 파일명
     String afterName = "";   // 변환 후 파일명
     
+    Scanner sc = new Scanner(System.in);
+    System.out.println("변환전 파일명 >>> ");
+
+    beforeName = sc.next();
+    
+    afterName = beforeName.substring(0,beforeName.indexOf(".")) + "_" + System.currentTimeMillis() + beforeName.substring(beforeName.indexOf("."));
+        //replace(".", "_" + System.currentTimeMillis());
+    
+    System.out.println(afterName);
+    
+    
+    
+    
+    
   }
   
   // 문제4. 주어진 주민등록번호(personalId)를 분석하여 나이와 성별을 출력하시오.
@@ -48,6 +71,13 @@ public class MainWrapper {
   // 9살 남자입니다.
   public static void ex04() {
     String personalId = "141212-3345678";
+    char no = personalId.charAt(7);
+    
+    if(no == '3' || no == '1') {
+      System.out.println("남자");
+    }else if( no == '2' || no == '4') {
+      System.out.println("여자");
+    }
     
   }
   
@@ -59,15 +89,36 @@ public class MainWrapper {
   //   문자열 입력 >>> 역삼역
   //   역삼역 : 거꾸로 읽어도 역삼역입니다.
   public static void ex05() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("문자열 입력 >>> ");
+    String name = sc.next();
+    int lenght = name.length();
+    boolean[] tr = new boolean[lenght];
+    for(int i = 0; i < lenght; i++) {     
+      tr[i] = name.charAt(i) == name.charAt(name.length() - 1 - i);
+    }
+    for(int i = 0; i < lenght; i++) {
+        if (tr[i] = false) {
+          System.out.println(name + " : 거꾸로 읽으면 " + name + "과 다릅니다.");          
+          
+      } else{
+        System.out.println(name + " : 거꾸로 읽어도 " + name + "입니다.");
+        
+      }
+    }
+    
+    
+    
+    
     
   }
   
   public static void main(String[] args) {
-    ex01();
-    ex02();
+    //ex01();
+    //ex02();
     ex03();
-    ex04();
-    ex05();
+    //ex04();
+    //ex05();
   }
 
 }
