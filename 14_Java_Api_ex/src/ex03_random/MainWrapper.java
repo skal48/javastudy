@@ -23,7 +23,7 @@ public class MainWrapper {
     for(int i = 0; i < 3; i++) {
     dice[i] = random.nextInt(6) + 1;
     }
-    System.out.println("주사위: [" + dice[0] + ", " + dice[1] + ", " + dice[2]+"]" );
+    System.out.println("주사위: [" + dice[0] + ", " + dice[1] + ", " + dice[2]+"]" ); //Arrays.toString(dice)
     
     
   }
@@ -42,6 +42,7 @@ public class MainWrapper {
     // 통장
     int balance = 5000;
     Random random = new Random();
+    
     for(int i = 1; i < i+1; i ++) {
       int wd = random.nextInt(balance) + 1 ;
       System.out.print("출금 전 " + balance + "원, " + i + "회 출금액 " + wd + " 원, " + "출금 후 ");
@@ -50,6 +51,17 @@ public class MainWrapper {
       if(balance == 0) {
         return;
       }
+           
+      /*
+       * int balance = 5000;  // 통장 
+       * int nth = 0;  // 회차
+       * while(balance > 0) {
+       *   nth++;  // 회차 증가
+       *  int withdrawal = (int)(Math.random() * balance) + 1;  // 1 <= withdrawal <= balance
+       *   System.out.println("출금 전 " + balance + "원, " + nth + "회 출금액 " + withdrawal + "원, 출금 후 " + (balance -= withdrawal) + "원");
+       * }
+       * 
+       */
     }
     
     
@@ -67,6 +79,14 @@ public class MainWrapper {
     
       System.out.println("인증코드: [" +  code + "]");
      
+      /*
+       * SecureRandom secureRandom = new SecureRandom();
+       * String code = "";
+       * for(int n = 0; n < 6; n++) {
+       *  code += secureRandom.nextInt(10);  // 0~9
+       * }
+       * System.out.println("인증코드: [" + code + "]");
+       */
   }
   
   // 문제4. 구구단을 외자.
@@ -82,7 +102,7 @@ public class MainWrapper {
     Random rd = new Random();
     Scanner sc = new Scanner(System.in); 
     
-    int one = rd.nextInt(9) + 1;
+    int one = rd.nextInt(8) + 2;
     int two = rd.nextInt(9) + 1;
     System.out.print(one + "*" + two + "? >>> ");
     int three = sc.nextInt();
@@ -90,7 +110,7 @@ public class MainWrapper {
     if(three == one * two) {
       System.out.println("정답");      
     }else {
-      System.out.println("땡");
+      System.out.println("땡");     //System.out.println(answer == dan * n ? "정답" : "땡");
     }
     
     sc.close();
@@ -111,9 +131,10 @@ public class MainWrapper {
     String[] yut = {"", "도", "개", "걸", "윷", "모"};
     Random rd = new Random();
     int total = 0;
+    
     for(int i = 0; i < i + 1; i++) {
       int a = rd.nextInt(5) + 1;
-      System.out.print(yut[a]+", ");
+      System.out.print("\"" + yut[a]+ "\"" + ", ");
       if(a == 4 || a == 5) {        
         total += a;
       }else if(a == 1 || a == 2 || a == 3) {
@@ -123,7 +144,20 @@ public class MainWrapper {
       }
     }
         
-
+    /*
+     *  String[] yut = {"", "도", "개", "걸", "윷", "모"};
+     *  int move = 0;
+     *  int totalMove = 0;
+     *  do {
+     *    move = (int)(Math.random() * 5 + 1);      // 이동횟수 1~5는 yut 배열의 인덱스로 활용한다.
+     *    totalMove += move;
+     *    System.out.print("\"" + yut[move] + "\"");// "도"~"모"
+     *    System.out.print(", ");
+     *  } while(move >= 4);
+     *  System.out.println(totalMove + "칸 이동한다.");
+     * 
+    
+     */
     
     
     
@@ -156,6 +190,34 @@ public class MainWrapper {
     
     sc.close();
     
+     // String[] rsp = {"가위", "바위", "보"};
+     // int com = (int)(Math.random() * 3);
+     // int user = 0;
+     // Scanner sc = new Scanner(System.in);
+     // System.out.println("가위바위보 >>> ");
+    
+     // switch(sc.next()) {
+     // case "가위": user = 0; break;
+     // case "바위": user = 1; break;
+     // case "보":   user = 2; break;
+     // }
+    
+     // String result = null;
+     // switch(user - com) {
+     // case -2:
+     // case 1:
+     //   result = "이겼습니다.";
+     //   break;
+     // case 0:
+     //   result = "비겼습니다.";
+     //   break;
+     // default:
+     //   result = "졌습니다.";
+     // }
+     // System.out.println("당신은 " + rsp[user] + ", 컴퓨터는 " + rsp[com] + ", " + result);
+     // sc.close();
+         
+    
   }
   
   // 문제7. "대문자+소문자+숫자"로 구성된 인증번호를 만드시오.
@@ -174,8 +236,9 @@ public class MainWrapper {
     int a = sc.nextInt();
     System.out.print("생성된 " + a + "자리 인증번호는 ");
     
+    SecureRandom rd = new SecureRandom();
+    
     for(int i = 0; i < a; i++) {
-      SecureRandom rd = new SecureRandom();
       int temp = rd.nextInt(72);
       if((temp >= 10 && 16 >= temp) || (temp >= 43 && temp <= 48) ) {
         i--;
@@ -191,6 +254,26 @@ public class MainWrapper {
     System.out.println("입니다.");
     
     sc.close();
+    
+    
+   // System.out.println("몇 자리의 인증번호를 생성할까요? >>> ");
+   // int count = sc.nextInt();
+   // SecureRandom secureRandom = new SecureRandom();
+   // StringBuilder sb = new StringBuilder();
+   // for(int n = 0; n < count; n++) {  // count만큼 반복하기
+   //   double randomNumber = secureRandom.nextDouble();  // 0.0 <= randomNumber < 1.0
+   //   if(randomNumber < 0.33) {
+   //     sb.append(secureRandom.nextInt(10));
+   //   } else if(randomNumber < 0.66) {
+   //     sb.append((char)(secureRandom.nextInt(26) + 'A'));
+   //   } else {
+   //     sb.append((char)(secureRandom.nextInt(26) + 'a'));
+   //   }
+   // }
+   // String code = sb.toString();
+   // System.out.println("생성된 " + count + "자리 인증번호는 " + code + "입니다.");
+   // sc.close();
+    
   }
   
   // 문제8. UpDown 게임
@@ -208,9 +291,11 @@ public class MainWrapper {
     Scanner sc = new Scanner(System.in);
     Random rd = new Random();
     int number = rd.nextInt(10000) + 1;
+    
     for(int i = 0; i < i + 1; i++) {
       System.out.print("입력 >>> ");
       int player = sc.nextInt();
+      
       if(number > player) {
         System.out.println("Up!");
       }else if(player > number) {
@@ -219,7 +304,28 @@ public class MainWrapper {
         System.out.println("정답. 총 " + (i+1) + "번만에 성공.");
         return;
       }
+      sc.close();
     }
+    
+    
+   // Scanner sc = new Scanner(System.in);
+   // int goal = (int)(Math.random() * 10000) + 1;
+   // int input = 0;
+   // int nth = 0;
+   // do {
+   //   System.out.println("입력 >>> ");
+   //   input = sc.nextInt();
+   //   nth++;
+   //   if(goal == input) {
+   //     System.out.println("정답은 " + goal + "이었습니다. " + nth + "번만에 성공했습니다.");
+   //   } else if(goal > input) {
+   //     System.out.println("Up!");
+   //   } else {
+   //     System.out.println("Down!");
+   //   }
+   // } while(goal != input);
+   // sc.close();
+    
   }
   
   // 문제9. 0~9 사이 난수를 100개 생성하시오.
@@ -251,6 +357,12 @@ public class MainWrapper {
         }
       }
       
+      // for(int i = 0; i < number.length; i++) {
+      //   number[i] = (int)(Math.random() * 10);
+      //   count[number[i]]++;
+      // }
+      
+      
      for(int k = 0; k < 9; k++) {
        System.out.print(k + " : ");
        for(int a = 0 ; a < count[k] + 1; a++) {
@@ -258,6 +370,15 @@ public class MainWrapper {
        }
        System.out.println(" " + count[k]);
      }
+     
+    // for(int i = 0; i < count.length; i++) {
+    //   StringBuilder sb = new StringBuilder();
+    //   for(int n = 0; n < count[i]; n++) {  // count 배열에 저장된 값(count[i])만큼 반복
+    //     sb.append("#");
+    //   }
+    //   String graph = sb.toString();
+    //   System.out.println(i + " : " + graph + " " + count[i]);
+    // }
   }
   
   // 문제10. 다음 순서에 따라서 5 x 5 형태의 숫자 빙고판을 자동으로 생성하시오.
@@ -288,23 +409,27 @@ public class MainWrapper {
     
     for(int i = 0; i < SIZE; i++) {
       for(int j =0; j <SIZE; j++) {
-        bingo[i][j] = (i * 5) + (j + 1);
+        bingo[i][j] = (i * SIZE) + (j + 1);
       }
     }
     for(int i = 0; i < SIZE; i++) {
       for(int j = 0; j < SIZE; j++) {
-        int a = rd.nextInt(5);
-        int b = rd.nextInt(5);
+        int a = rd.nextInt(SIZE);
+        int b = rd.nextInt(SIZE);
         int[][] tmp = new int[SIZE][SIZE];
         tmp[i][j] = bingo[i][j];
         bingo[i][j] = bingo[a][b];
         bingo[a][b] = tmp[i][j];      
       }      
+      
+      // int temp;
+      // temp = bingo[i][j];
+      // bingo[a][b] = temp;   더 간략하게 나타 낼 수 있음
     }
     
     for(int i = 0; i < SIZE; i++) {
       for(int j = 0; j < SIZE; j++) {
-        System.out.print(String.format("%3s", bingo[i][j]));
+        System.out.print(String.format("%3d", bingo[i][j]));
       }
       System.out.println();
     }
