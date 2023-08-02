@@ -1,5 +1,7 @@
 package ex02_String;
 
+
+
 public class MainWrapper {
 
   // 문제1. 다음 주소를 아래와 같이 분석하여 분리하시오.
@@ -10,6 +12,9 @@ public class MainWrapper {
     String url = "https://comic.naver.com/webtoon/detail?titleId=758037&no=112&weekday=mon";
     String requestURI = "";
     String param = "";
+    
+    requestURI = url.substring(0,url.indexOf("?"));
+    
     
   }
 

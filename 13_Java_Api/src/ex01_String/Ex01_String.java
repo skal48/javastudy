@@ -136,7 +136,7 @@ public class Ex01_String {
     String name = "tom cruise";
     
     String firstName = name.substring(0, 3);// tom;
-    String lastName = name.substring(4);// tom;
+    String lastName = name.substring(4);// cruise;
     
     System.out.println(firstName);    
     System.out.println(lastName);    
