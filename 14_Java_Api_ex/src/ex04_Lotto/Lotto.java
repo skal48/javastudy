@@ -1,6 +1,6 @@
 package ex04_Lotto;
 
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class Lotto {
@@ -35,7 +35,7 @@ public class Lotto {
    * @param money 로또 구매 비용
    */
   public void generateLotto(int money) {
-    Random rd = new Random();
+    
     int count = 0;
     
     if(this.money / 5000 == 0) {
@@ -50,7 +50,7 @@ public class Lotto {
       for(int j = 0; j < 5; j++) {
         System.out.print(String.format("%02d",j + 1) + " : ");
         for(int k = 0; k < 6; k++) {
-          int ball = rd.nextInt(45) + 1;
+          int ball = (int)(Math.random() * 45) + 1;
           System.out.print(String.format("%4d", ball));   
           }
         if( i * 5 + ( j + 1 ) == this.money / 1000 ) {
