@@ -13,7 +13,9 @@ import ex02_OutputStream.Student;
 public class MainWrapper {
 
   /*
-   * java.io.InputStream 클래스 1. 바이트 기반의 입력스트림이다. 2. 입력단위 1) int 2) byte[]
+   * java.io.InputStream 클래스 
+   * 1. 바이트 기반의 입력스트림이다. 
+   * 2. 입력단위 1) int 2) byte[]
    */
   public static void ex01() {
 

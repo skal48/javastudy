@@ -3,7 +3,7 @@ package ex01_is_a;
 public class MainWapper {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+   
     // Student 객체 선언 & 생성
     Student s = new Student();
     

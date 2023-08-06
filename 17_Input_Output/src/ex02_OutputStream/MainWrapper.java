@@ -16,7 +16,8 @@ public class MainWrapper {
    * 2. 출력단위
    *    1) int
    *    2) byte[]
-   *   
+   * FileOutputStream : byte 단위로 파일을 기록하는 클래스
+   * 끝나고 반드시 close()해주어야한다. 
    */
   
   public static void ex01() {
@@ -121,9 +122,9 @@ public class MainWrapper {
     }
     
     File file = new File(dir, "ex03.dat");
+    
     //버퍼출력스트림 선언 출력속도가 빠름
     BufferedOutputStream bout =null; 
-    
     
     try {
       bout = new BufferedOutputStream(new FileOutputStream(file));
@@ -166,7 +167,7 @@ public class MainWrapper {
     }
     
     File file = new File(dir, "ex04.dat");
-    //버퍼출력스트림 선언 출력속도가 빠름
+ // 데이터출력스트림 선언
     DataOutputStream dout =null; 
     
     

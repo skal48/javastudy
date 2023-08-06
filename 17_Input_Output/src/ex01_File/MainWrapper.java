@@ -15,10 +15,10 @@ public class MainWrapper {
    */
   
   /*
-   * 결로 작성 방법
+   * 경로 작성 방법
    * 1. 윈도우 : 백슬래시(\) ,Java에서 백슬래시 입력하는 방법 \\
    * 2. 리눅스 : 슬래시(/)
-   * 3. java.io.File 클래스에는 플랫폼에 따라서 결로 구분자를 자동으로 바꿔주는 separator 
+   * 3. java.io.File 클래스에는 플랫폼에 따라서 경로 구분자를 자동으로 바꿔주는 separator 필드 값이 있다.
    * 
    */
   
@@ -48,7 +48,6 @@ public class MainWrapper {
   public static void ex02() {
     
     //  파일의 생성/삭제
-    try {
       //디렉터리를 file 객체로 생성
       File dir = new File("C:/storage"); //윈도우 플랫폼에서도 슬래시(/)가 인식된다. 
       
@@ -60,6 +59,7 @@ public class MainWrapper {
       //파일을 file객체로 생성
       File file = new File(dir, "myfile.txt");
       
+      try {
       //파일이 있으면 지우고 없으면 만들기
       if(file.exists()) {
         file.delete();
@@ -80,7 +80,7 @@ public class MainWrapper {
     //getName()       : 이름 반환
     //getParent()     : 저장된 디렉터리 반환
     //getPath()       : getParent() + getName()
-    //lasrModified()  : 최종 수정일을 long타입으로 반환
+    //lastModified()  : 최종 수정일을 long타입으로 반환
     //lenght()        : 크기를 long 타입의 바이트 단위로 반환
     //isDirectory()   : 디렉터리면 true 반환
     //isFile()        : 파일이면 true 반환
@@ -131,6 +131,7 @@ public class MainWrapper {
   
   public static void main(String[] args) {
     //ex01();
+    //ex02();
     ex03();
 
   }

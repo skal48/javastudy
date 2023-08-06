@@ -1,7 +1,12 @@
 package ex05_log_file;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -48,38 +53,45 @@ public class MainWrapper {
         // 2023-08-04 15:10:30    / by zero
         // 2023-08-04 15:11:23    invalid operator ++
         // 2023-08-04 15:12:52    null
-        
         File dir = new File("C:/storage");
-        File file = new File(dir, "log.txt");
+        File file = new File(dir,"log.txt");
         if(dir.exists() == false) {
           dir.mkdirs();
         }
-          FileOutputStream fout = null;
-          
-          try {
         
-            fout = new FileOutputStream(file, true);
-            
-            LocalDateTime datetime = LocalDateTime.now();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm:ss");
-            
-            String strDateTime = dtf.format(datetime);
-            StringBuilder sb = new StringBuilder();
-            sb = sb.append(strDateTime);
-            sb = sb.append(e.printStackTrace());
-            String d= e.printStackTrace();
-            byte[] b = strDateTime.getBytes();
-            fout.write(sb);
-            
-            System.out.println("오류");
-  
-          } catch(IOException e2) {
-            e2.printStackTrace();
+        BufferedWriter bw = null;
+                
+        try {
+          bw = new BufferedWriter(new FileWriter(file, true));
+          
+          LocalDateTime datetime = LocalDateTime.now();
+          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+          
+          String strDateTime = dtf.format(datetime);
+          StringBuilder sb = new StringBuilder();
+          sb = sb.append(strDateTime);
+          
+          
+          ByteArrayOutputStream baos = new ByteArrayOutputStream();
+          PrintStream ps = new PrintStream(baos);
+          e.printStackTrace(ps);
+          String last = baos.toString();
+          bw.newLine();
+          bw.write(sb.toString() + " " + last);
+        }catch(IOException a) {
+          a.printStackTrace();
+        }finally {
+          try {
+            if(bw != null) {bw.close();}            
+          } catch(IOException a) {
+            a.printStackTrace();
           }
         }
+    
+        
         
       }
-      
+    }
     
 
   }
