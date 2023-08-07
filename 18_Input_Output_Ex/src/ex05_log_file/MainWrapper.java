@@ -2,11 +2,9 @@ package ex05_log_file;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -76,6 +74,7 @@ public class MainWrapper {
           PrintStream ps = new PrintStream(baos);
           e.printStackTrace(ps);
           String last = baos.toString();
+          
           bw.newLine();
           bw.write(sb.toString() + " " + last);
         }catch(IOException a) {

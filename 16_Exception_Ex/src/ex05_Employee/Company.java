@@ -14,6 +14,15 @@ public class Company {
   
   public void addEmployee() {
     System.out.println("===== 고용 =====");
+    System.out.print("고용 형태 선택(1.정규 2.프리랜서) >>>");
+    int twoWay = sc.nextInt();
+    if(twoWay == 1) {
+      System.out.print("사원번호 입력 >>>");
+      String empNo = sc.next();
+      System.out.print("사원명 입력 >>>");
+      String empName = sc.next();
+      
+    }
     
   }
   
