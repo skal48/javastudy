@@ -1,5 +1,7 @@
 package ex05_Employee;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,10 +11,10 @@ public class Company {
   private Scanner sc = new Scanner(System.in);
   
   public Company() {
-
+   
   }
   
-  public void addEmployee() {
+  public void addEmployee() throws InputMismatchException{
     System.out.println("===== 고용 =====");
     System.out.print("고용 형태 선택(1.정규 2.프리랜서) >>>");
     int twoWay = sc.nextInt();
@@ -21,9 +23,28 @@ public class Company {
       String empNo = sc.next();
       System.out.print("사원명 입력 >>>");
       String empName = sc.next();
+      Regular reg = new Regular(empNo, empName);
+      employees.add(reg); 
+      System.out.print("기본급 입력 >>> ");
+      int salary = sc.nextInt();
+      reg.setSalary(salary);
+      System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + (employees.size()+1) + "명입니다.");
+    }else if(twoWay == 2) {
+      System.out.print("사원번호 입력 >>>");
+      String empNo = sc.next();
+      System.out.print("사원명 입력 >>>");
+      String empName = sc.next();
+      Freelance fre = new Freelance(empNo, empName);
+      employees.add(fre); 
+      System.out.print("시간당 임금 입력 >>> ");
+      int hw = sc.nextInt();
+      fre.setHourlyWage(hw);
+      System.out.print("근무한 시간 입력 >>>");
+      int time = sc.nextInt();
+      fre.setWorkingHours(time);
+      System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + (employees.size()+1) + "명입니다.");
+    } else { return;}
       
-    }
-    
   }
   
   public void dropEmployee() {
