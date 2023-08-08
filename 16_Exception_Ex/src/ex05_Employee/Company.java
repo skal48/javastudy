@@ -24,19 +24,20 @@ public class Company {
     String empName = sc.next();
     if(twoWay == 1) {
       
-      employees.add(new Regular(empNo, empName)); 
+      employees.add(employees.size(), new Regular(empNo, empName));       
       System.out.print("기본급 입력 >>> ");
       int salary = sc.nextInt();
-      employees.add(Regular.).setSalary(salary));
+      ((Regular)employees.get(employees.size() -1)).setSalary(salary);
+      
       System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + employees.size() + "명입니다.");
     }else if(twoWay == 2) {      
-      employees.add(new Freelance(empNo, empName)); 
+      employees.add(employees.size(), new Freelance(empNo, empName)); 
       System.out.print("시간당 임금 입력 >>> ");
       int hw = sc.nextInt();
-      fre.setHourlyWage(hw);
+      ((Freelance)employees.get(employees.size())).setHourlyWage(hw);
       System.out.print("근무한 시간 입력 >>> ");
       int time = sc.nextInt();
-      fre.setWorkingHours(time);
+      ((Freelance)employees.get(employees.size())).setWorkingHours(time);
       System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + employees.size() + "명입니다.");
     } else { return;}
       
@@ -47,11 +48,11 @@ public class Company {
     System.out.print("삭제할 사원번호 입력 >>> ");
     String empNo = sc.next();
     for(int i = 0, lenght = employees.size(); i < lenght; i++) { 
-      if(employees.get(i).getEmpNo().equals(empNo)) {
+      if((employees.get(i).getEmpNo()).equals(empNo)) {
         System.out.println("다음 사원이 삭제되었습니다.");
-        Employee.info();
-        employees.get(i).info();      
+        employees.get(i).info();              
         employees.remove(i);
+        System.arraycopy(employees, 0, employees, 0, lenght);
       }
     }
   }
@@ -62,9 +63,9 @@ public class Company {
     System.out.print("조회할 사원번호 입력 >>> ");
     String empNo = sc.next();
     System.out.println("사원 조회 성공!");
-    for(int i = 0, lenght = employees.size(); i < lenght; i++) { 
-      if(employees.get(i).getEmpNo() == empNo) {
-        employees.get(i).info();
+    for(Employee emps: employees) { 
+      if(emps.getEmpNo() == empNo) {
+        emps.info();
         
       }
     }
@@ -72,6 +73,8 @@ public class Company {
   
   public void printAllEmployee() {
     System.out.println("===== 전체조회 =====");
+    System.out.println("전체 사원(" + employees.size() + "명)");
+    System.out.println("------------------");
     
   }
   
