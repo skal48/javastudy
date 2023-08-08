@@ -39,10 +39,10 @@ public class MainWrapper {
 
     a = b;
     /*for(int i = 0; i < a.length; i++) {
-=======
+
     /*a = b;
     for(int i = 0; i < a.length; i++) {
->>>>>>> 8755d70378eef71ba092bbe6ecb6608912290824
+
       if(ch == a[i]) {
         System.out.print(a[i]);
         break;

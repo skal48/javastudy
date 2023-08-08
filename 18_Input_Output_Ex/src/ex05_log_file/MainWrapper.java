@@ -63,20 +63,16 @@ public class MainWrapper {
           bw = new BufferedWriter(new FileWriter(file, true));
           
           LocalDateTime datetime = LocalDateTime.now();
-          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm:ss");
           
           String strDateTime = dtf.format(datetime);
           StringBuilder sb = new StringBuilder();
           sb = sb.append(strDateTime);
           
-          
-          ByteArrayOutputStream baos = new ByteArrayOutputStream();
-          PrintStream ps = new PrintStream(baos);
-          e.printStackTrace(ps);
-          String last = baos.toString();
-          
+         
           bw.newLine();
-          bw.write(sb.toString() + " " + last);
+          bw.write(sb.toString() + " " + e.getMessage());
+          System.out.println(file.getName() + " 파일 만들었음");
         }catch(IOException a) {
           a.printStackTrace();
         }finally {
@@ -85,13 +81,8 @@ public class MainWrapper {
           } catch(IOException a) {
             a.printStackTrace();
           }
-        }
-    
-        
-        
+        }   
       }
     }
-    
-
   }
 }

@@ -12,6 +12,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import javax.management.Descriptor;
+import javax.management.RuntimeErrorException;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class MainWrapper {
 
   public static void ex01() {
@@ -100,9 +106,106 @@ public class MainWrapper {
    
   }
   
+  public static void ex02() {
+    
+    /*
+     * 네이버개발자센터 - 검색(블로그)
+     * 1. 요청주소 : https://openapi.naver.com/v1/search/blog.json
+     * 2. 요청변수
+     *    1) query    : 필수, 인코딩된 검색어
+     *    2) display  : 선택, 10 (검색 결과의 개수)
+     *    3) start    : 선택, 1
+     *    4) sort     : 선택, sim (sim 또는 date) 
+     */
+    
+    URL url = null;
+    HttpURLConnection con = null;
+    BufferedReader reader = null;
+    
+    try {
+      String spec = "https://openapi.naver.com/v1/search/blog.json";
+      String query = "폭염";
+      String display = "10";
+      String start = "1";
+      String sort = "sim";
+      String clientId = "emwjRM02_8WIWde35QI4";
+      String clientSecret = "2Zd240M_xE";
+      
+      StringBuilder sbUrl = new StringBuilder();
+      sbUrl.append(spec);
+      sbUrl.append("?query=").append(URLEncoder.encode(query, "UTF-8"));
+      sbUrl.append("&display=").append(display);
+      sbUrl.append("&start=").append(start);
+      sbUrl.append("&sort=").append(sort);  //get 방식의 주소만들기 이다. get 방식의 HTTP메서드는 기본이기 때문에 생략가능
+      
+      url = new URL(sbUrl.toString());
+      con = (HttpURLConnection) url.openConnection();
+      
+      // 요청 메소드 
+      con.setRequestMethod("GET"); //반드시 대문자 GET/ 생략가능
+      // 요청 헤더
+      con.setRequestProperty("X-Naver-Client-Id", clientId);
+      con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+      
+      int responseCode = con.getResponseCode();
+      if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new RuntimeException(responseCode + "발생");
+      }
+      
+      reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+      
+      StringBuilder sb = new StringBuilder();
+      String line = null;
+      while((line = reader.readLine()) != null ) {
+        sb.append(line);
+      }
+      
+      JSONObject obj = new JSONObject(sb.toString());
+      JSONArray items = obj.getJSONArray("items");
+      for(int i = 0,lenght = items.length(); i < lenght; i++) {
+        JSONObject item = items.getJSONObject(i); //배열안의 JSON은 JSON은 JSONOBJECT로 꺼낸다.
+        System.out.println((i+1) + "번째 블로그 검색 결과");
+        System.out.println("제목: " + item.getString("title"));
+        System.out.println("링크: " + item.getString("link"));
+        System.out.println("요약: " + item.getString("description"));
+        System.out.println("블로거: " + item.getString("bloggername"));
+        System.out.println("블로거링크: " + item.getString("bloggerlink"));
+        System.out.println("작성날짜: " + item.getString("postdate"));
+        System.out.println();
+        
+      }
+      
+            
+      } catch( Exception e) {
+        System.out.println(e.getMessage());
+      }finally {  
+        try {
+          if(reader != null) {reader.close();}
+          if(con != null) {con.disconnect();}
+        }catch (Exception e) {
+          e.printStackTrace();
+        }
+      
+      
+  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+    
+    
+  }
+  
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-    ex01();
+    //ex01();
+    ex02();
   }
 
 }

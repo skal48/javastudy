@@ -126,7 +126,7 @@ public class MainWrapper {
     }
     
     //파일은 File 객체로 만들기
-    File file = new File(dir, "ex02.txt");
+    File file = new File(dir, "ex03.txt");
     
     //버퍼출력스트림 선언
     PrintWriter out = null;
