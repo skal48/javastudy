@@ -25,6 +25,7 @@ public void setName(String name) {
  this.name = name;
 }
 public void info() {
+ 
  System.out.println("  [사원번호:" + empNo + "]");
  System.out.println("  [사원명:" + name + "]");
 }

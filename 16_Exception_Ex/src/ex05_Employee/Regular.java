@@ -17,9 +17,9 @@ public void setSalary(int salary) {
 }
 @Override
 public void info() {
-  
-  System.out.println("[기본급:" + salary + "원]" );
-  System.out.println("[급여:" + (int)(salary*0.9) + "원]");
+  super.info();
+  System.out.println("  [기본급:" + salary + "원]" );
+  System.out.println("  [급여:" + (int)(salary*0.9) + "원]");
   
   
   

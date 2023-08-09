@@ -27,19 +27,19 @@ public class Company {
       employees.add(employees.size(), new Regular(empNo, empName));       
       System.out.print("기본급 입력 >>> ");
       int salary = sc.nextInt();
-      ((Regular)employees.get(employees.size() -1)).setSalary(salary);
+      ((Regular)employees.get(employees.size() - 1)).setSalary(salary);
       
       System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + employees.size() + "명입니다.");
     }else if(twoWay == 2) {      
       employees.add(employees.size(), new Freelance(empNo, empName)); 
       System.out.print("시간당 임금 입력 >>> ");
       int hw = sc.nextInt();
-      ((Freelance)employees.get(employees.size())).setHourlyWage(hw);
+      ((Freelance)employees.get(employees.size() - 1)).setHourlyWage(hw);
       System.out.print("근무한 시간 입력 >>> ");
       int time = sc.nextInt();
-      ((Freelance)employees.get(employees.size())).setWorkingHours(time);
+      ((Freelance)employees.get(employees.size() - 1)).setWorkingHours(time);
       System.out.println("사원 등록이 완료되었습니다. 현재 등록된 사원은 " + employees.size() + "명입니다.");
-    } else { return;}
+    } else { return ;}
       
   }
   
@@ -47,7 +47,7 @@ public class Company {
     System.out.println("===== 해고 =====");
     System.out.print("삭제할 사원번호 입력 >>> ");
     String empNo = sc.next();
-    for(int i = 0, lenght = employees.size(); i < lenght; i++) { 
+    for(int i = 0, lenght = employees.size(); i < lenght-1; i++) { 
       if((employees.get(i).getEmpNo()).equals(empNo)) {
         System.out.println("다음 사원이 삭제되었습니다.");
         employees.get(i).info();              
@@ -75,6 +75,14 @@ public class Company {
     System.out.println("===== 전체조회 =====");
     System.out.println("전체 사원(" + employees.size() + "명)");
     System.out.println("------------------");
+    for(Employee emps : employees ) {
+      emps.info();
+      System.out.println("------------------");      
+    }
+    int total1 = 0;
+    int total2 = 0;
+    
+    System.out.println("[사원 전체 급여:" + (total1 + total2) + "원]" );
     
   }
   

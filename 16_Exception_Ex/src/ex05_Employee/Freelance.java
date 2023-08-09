@@ -25,10 +25,10 @@ public void setWorkingHours(int workingHours) {
 }
 @Override
 public void info() {
-  
-  System.out.println("[시간당 임금:" + hourlyWage + "원}");
-  System.out.println("[근무한 시간:" + workingHours + "시간]" );
-  System.out.println("[급여:" + (int)(hourlyWage*workingHours*0.97) + "원]");
+  super.info();
+  System.out.println("  [시간당 임금:" + hourlyWage + "원}");
+  System.out.println("  [근무한 시간:" + workingHours + "시간]" );
+  System.out.println("  [급여:" + (int)(hourlyWage*workingHours*0.97) + "원]");
     
  // [사원번호:0002]
  // [사원명:구마적]

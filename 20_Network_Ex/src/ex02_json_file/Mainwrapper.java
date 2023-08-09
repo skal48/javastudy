@@ -1,6 +1,6 @@
 package ex02_json_file;
 
-import java.io.BufferedInputStream;
+import java.io.BufferedInputStream ;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
