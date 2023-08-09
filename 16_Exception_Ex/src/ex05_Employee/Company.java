@@ -52,7 +52,7 @@ public class Company {
         System.out.println("다음 사원이 삭제되었습니다.");
         employees.get(i).info();              
         employees.remove(i);
-        System.arraycopy(employees, 0, employees, 0, lenght);
+        
       }
     }
   }
@@ -64,7 +64,7 @@ public class Company {
     String empNo = sc.next();
     System.out.println("사원 조회 성공!");
     for(Employee emps: employees) { 
-      if(emps.getEmpNo() == empNo) {
+      if(emps.getEmpNo().equals(empNo)) {
         emps.info();
         
       }
