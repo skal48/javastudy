@@ -178,36 +178,33 @@ public class ContactDao {
    
   public List<ContactDto> selectList(){
     
-    List<ContactDto> list = new ArrayList<ContactDto>();
+ List<ContactDto> list = new ArrayList<ContactDto>();
     
     try {
       
       con = getConnection();
-      String sql = "SELECT CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT FROM CONTACT_T ORDER BY";
+      String sql = "SELECT CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT FROM CONTACT_T ORDER BY CONTACT_NO ASC";
       ps = con.prepareStatement(sql);
       rs = ps.executeQuery();
       while(rs.next()) {
         ContactDto contactDto = new ContactDto();
-        contactDto.setContact_no(rs.getInt("CONCTAT_NO"));
+        contactDto.setContact_no(rs.getInt("CONTACT_NO"));
         contactDto.setName(rs.getString("NAME"));
         contactDto.setTel(rs.getString("TEL"));
-        contactDto.setEmail(rs.getNString("EMAIL"));
+        contactDto.setEmail(rs.getString("EMAIL"));
         contactDto.setAddress(rs.getString("ADDRESS"));
-        
+        contactDto.setCreated_at(rs.getString("CREATED_AT"));
         list.add(contactDto);
-        
-        
       }
       
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     } finally {
       close();
     }
     
-    
     return list;
-
+    
   }
   /**
    *  상세조회 메소드<br>

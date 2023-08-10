@@ -47,13 +47,12 @@ public class ContactMain {
         JOptionPane.showMessageDialog(null, "잘못된 입력입니다. 다시 선택해주세요");
       }
       
-      Map<String, Object> map = null;
+      
       if(view != null) {
-        map = view.display();
+        Map<String, Object> map = view.display();
+        String message = contactController.request(choice, map);
+        JOptionPane.showMessageDialog(null, message);
       }
-     
-      String message = contactController.request(choice, map);
-      JOptionPane.showMessageDialog(null, message);
       
     }
     
