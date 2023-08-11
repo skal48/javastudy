@@ -51,38 +51,45 @@ public class MainWrapper {
         // 2023-08-04 15:10:30    / by zero
         // 2023-08-04 15:11:23    invalid operator ++
         // 2023-08-04 15:12:52    null
+        
+        // 예외 발생 시간
+        // 예외 발생 시간
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm:ss");
+        String time = dtf.format(now);
+        
+        // 예외 메시지
+        String message = e.getMessage();
+        
+        // 예외 클래스
+        String clazz = e.getClass().getName();
+        
+        // File 객체
         File dir = new File("C:/storage");
-        File file = new File(dir,"log.txt");
         if(dir.exists() == false) {
           dir.mkdirs();
         }
+        File file = new File(dir, "log.txt");
         
-        BufferedWriter bw = null;
-                
-        try {
-          bw = new BufferedWriter(new FileWriter(file, true));
+        // try-catch-resources
+        // 추가 모드 : 기존 파일에 내용을 추가하는 모드  new FileWriter(file, true)
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
           
-          LocalDateTime datetime = LocalDateTime.now();
-          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm:ss");
-          
-          String strDateTime = dtf.format(datetime);
-          StringBuilder sb = new StringBuilder();
-          sb = sb.append(strDateTime);
-          
-         
+          // 로그 파일에 "시간 예외메시지 예외클래스" 추가하기
+          bw.write(time + "  " + message + "  " + clazz);
           bw.newLine();
-          bw.write(sb.toString() + " " + e.getMessage());
-          System.out.println(file.getName() + " 파일 만들었음");
-        }catch(IOException a) {
-          a.printStackTrace();
-        }finally {
-          try {
-            if(bw != null) {bw.close();}            
-          } catch(IOException a) {
-            a.printStackTrace();
-          }
-        }   
+          
+          // 결과 메시지
+          System.out.println(file.getPath() + " 파일에 예외 처리 완료");
+          
+        } catch (IOException e2) {
+          e2.printStackTrace();
+        }
+        
       }
+      
     }
+
   }
+
 }
