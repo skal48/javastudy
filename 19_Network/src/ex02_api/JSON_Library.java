@@ -70,6 +70,7 @@ public class JSON_Library {
     
     //배열 확인
     System.out.println(array);
+    
   }
   
   public static void ex03() {
@@ -86,9 +87,9 @@ public class JSON_Library {
     double height = obj.getDouble("height");  //double height = (double)obj.get("height");
     
     //결과 확인
-    System.out.println(name);
-    System.out.println(age);
-    System.out.println(height);
+    System.out.println(name); //tom
+    System.out.println(age);  //50
+    System.out.println(height); //180.5
     
   }
   public static void ex04() {
@@ -179,10 +180,10 @@ public class JSON_Library {
     
     //ex01();
     //ex02();
-    //ex03();
+    ex03();
     //ex04();
     //ex05();
-    ex06();
+    //ex06();
     
     
     

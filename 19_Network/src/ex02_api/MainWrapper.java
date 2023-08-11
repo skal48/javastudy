@@ -163,7 +163,7 @@ public class MainWrapper {
       JSONObject obj = new JSONObject(sb.toString());
       JSONArray items = obj.getJSONArray("items");
       for(int i = 0,lenght = items.length(); i < lenght; i++) {
-        JSONObject item = items.getJSONObject(i); //배열안의 JSON은 JSON은 JSONOBJECT로 꺼낸다.
+        JSONObject item = items.getJSONObject(i); //배열안의 JSON은 JSONOBJECT로 꺼낸다.
         System.out.println((i+1) + "번째 블로그 검색 결과");
         System.out.println("제목: " + item.getString("title"));
         System.out.println("링크: " + item.getString("link"));

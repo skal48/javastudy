@@ -122,17 +122,19 @@ public class NaverApiSearchBook {
       }
       
       JSONObject obj = new JSONObject(sb.toString());
+     
       JSONArray items = obj.getJSONArray("items");
-      List<String> list = new ArrayList<String>();
+      //List<String> list = new ArrayList<String>();
       for(int i = 0,lenght = items.length(); i < lenght; i++) {
         JSONObject item = items.getJSONObject(i);      
-        list.add(item.getString("image"));
+        //list.add(item.getString("image"));
+        generateImage(item.getString("image"));
       }
       
       
-      for(int i = 0,lenght = list.size(); i < lenght; i++) {        
-        generateImage(list.get(i));
-      }
+      //for(int i = 0,lenght = list.size(); i < lenght; i++) {        
+       // generateImage(list.get(i));
+       //}
       // 책 검색 OpenAPI를 사용해서 응답 결과 중 이미지(image) 결과만 추출하여
       // generateImage 메소드에 전달한다.
       // 10번의 generateImage 메소드 호출이 필요하다.
