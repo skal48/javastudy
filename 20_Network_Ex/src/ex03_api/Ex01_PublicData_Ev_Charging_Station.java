@@ -10,9 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import javax.management.RuntimeErrorException;
-
-public class MainWrapper {
+public class Ex01_PublicData_Ev_Charging_Station {
 
   public static void main(String[] args) {
     
