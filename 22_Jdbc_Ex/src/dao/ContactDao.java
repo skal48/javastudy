@@ -36,7 +36,7 @@ public class ContactDao {
     // 내부에서만 호출할 수 있는 생성자, 외부에서 못만들게 하려고 
         
   }
-  public static ContactDao getDao() {  //외부에서 Dao를 실행시킬려고 static 인 Dao를 실행시키고자 static을 쓰는 것 
+  public static ContactDao getDao() {  //외부에서 Dao를 실행시킬려고, static 인 Dao를 실행시키고자 static을 쓰는 것 
     return dao;
   }
   
